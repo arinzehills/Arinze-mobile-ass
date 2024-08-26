@@ -5,15 +5,19 @@ Arinze Irecharge mobile app task - Employee Assessment System
 ## Features
 
 - Sign in as the admin of the company to view employees or add new one.
-  ![Login Screen](./screenshots/login.png)
-  <img src="./screenshots/login.png" alt="Login Screen" height="100">
+  <img src="./screenshots/login.png" alt="Login Screen" height="300">
 
   - Please use "admin" as the username and "password" as password to sign in any other apart from this will fail.
+    <img src="./screenshots/login.png" alt="Login Screen" height="300">
 
 - Displaying employees withing the company from a mock API then saving to local db(Hive).
+  <img src="./screenshots/home.png" alt="Login Screen" height="300">
 - View detailed information about each employee and respective evaluated perfomance.
+  <img src="./screenshots/promoted.png" alt="Login Screen" height="300">
+  <img src="./screenshots/terminated.png" alt="Login Screen" height="300">
 - Searching for employees by name, designation or level.
 - Filtering Employees by one or more levels, one or more designation and name.
+  <img src="./screenshots/filter.png" alt="Login Screen" height="300">
 
 ## Technologies Used
 
