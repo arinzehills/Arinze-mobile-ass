@@ -4,9 +4,8 @@ Arinze Irecharge mobile app task - Employee Assessment System
 
 ## Features
 
-- Sign in as the admin of the company to view employees or add new one.
+- Sign in as the admin of the company to view employees or add new one.(Please use "admin" as the username and "password" as password to sign in any other apart from this will fail)
 
-  - Please use "admin" as the username and "password" as password to sign in any other apart from this will fail.
     <img src="./screenshots/login.png" alt="Login Screen" height="300">
 
 - Displaying employees withing the company from a mock API then saving to local db(Hive).
