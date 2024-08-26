@@ -4,9 +4,10 @@ Arinze Irecharge mobile app task - Employee Assessment System
 
 ## App Features
 
-- Sign in as the admin of the company to view employees or add new one.(Please use "admin" as the username and "password" as password to sign in any other apart from this will fail)
+- Sign in as the admin of the company to VIEW employees or ADD new one.(Please use "admin" as the username and "password" as password to sign in any other apart from this will fail)
 
     <img src="./screenshots/login.png" alt="Login Screen" height="300">
+    <img src="./screenshots/addnew.png" alt="Add Employee" height="300">
 
 - Displaying employees withing the company from a mock API then saving to local db(Hive).
   <img src="./screenshots/home.png" alt="Login Screen" height="300">
@@ -28,8 +29,8 @@ Arinze Irecharge mobile app task - Employee Assessment System
 
 ### Prerequisites
 
-- Node.js (version 14 or higher)
-- npm (or Yarn)
+- Flutter SDK (version 3.0 or higher)
+- Android Studio or Xcode (for iOS development)
 
 ### Installation
 
