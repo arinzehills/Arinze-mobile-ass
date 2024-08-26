@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_assessment/common/shared_styles.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
@@ -10,7 +11,7 @@ class CustomTextField extends StatelessWidget {
   final int? maxLength;
   final TextInputType? keyboardType;
   final Function(String?)? onSaved;
-  final String Function(String?)? validator;
+  final String? Function(String?)? validator;
   final Function(String?)? onChanged;
   final String? initialValue;
   final bool isDisabled;
@@ -40,6 +41,8 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isTablet = size(context).width > 600;
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: controller != null
@@ -52,22 +55,28 @@ class CustomTextField extends StatelessWidget {
               validator: validator,
               onSaved: onSaved!,
               onChanged: onChanged,
-              style: const TextStyle(color: Colors.black, fontSize: 14),
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 14,
+                height: isTablet ? 2.9 : 1.7,
+              ),
               cursorColor: Theme.of(context).highlightColor,
               maxLines: isPassword ? 1 : maxLines,
               maxLength: maxLength,
               keyboardType: keyboardType,
               readOnly: readOnly,
-              decoration: InputDecoration(
+              decoration: textFieldDecoration.copyWith(
                 labelText: labelText,
                 suffix: suffix,
                 suffixIcon: suffixIcon,
-                disabledBorder: UnderlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Theme.of(context).primaryColor)),
-                enabledBorder: UnderlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Theme.of(context).primaryColor)),
+                contentPadding: isTablet ? EdgeInsets.all(14.0) : null,
+
+                // disabledBorder: UnderlineInputBorder(
+                //     borderSide:
+                //         BorderSide(color: Theme.of(context).primaryColor)),
+                // enabledBorder: UnderlineInputBorder(
+                //     borderSide:
+                //         BorderSide(color: Theme.of(context).primaryColor)),
               ),
             )
           : TextFormField(
@@ -79,25 +88,31 @@ class CustomTextField extends StatelessWidget {
               validator: validator,
               onSaved: onSaved,
               onChanged: onChanged,
-              style: const TextStyle(color: Colors.black, fontSize: 14),
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 14,
+                height: isTablet ? 2.9 : 1.7,
+              ),
               cursorColor: Theme.of(context).primaryColor,
               maxLines: isPassword ? 1 : maxLines,
               maxLength: maxLength,
               keyboardType: keyboardType ?? TextInputType.text,
               readOnly: readOnly,
-              decoration: InputDecoration(
+              decoration: textFieldDecoration.copyWith(
                 labelText: labelText,
                 floatingLabelStyle:
                     TextStyle(color: Theme.of(context).primaryColor),
                 suffix: suffix,
                 suffixIcon: suffixIcon,
-                focusedBorder: UnderlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Theme.of(context).primaryColor)),
-                disabledBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey)),
-                enabledBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black)),
+                contentPadding: isTablet ? EdgeInsets.all(14.0) : null,
+
+                // focusedBorder: UnderlineInputBorder(
+                //     borderSide:
+                //         BorderSide(color: Theme.of(context).primaryColor)),
+                // disabledBorder: const UnderlineInputBorder(
+                //     borderSide: BorderSide(color: Colors.grey)),
+                // enabledBorder: const UnderlineInputBorder(
+                //     borderSide: BorderSide(color: Colors.black)),
               ),
             ),
     );

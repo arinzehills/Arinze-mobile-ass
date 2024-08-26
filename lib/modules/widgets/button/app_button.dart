@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class _AppButton extends StatefulWidget {
+class AppButton extends StatefulWidget {
   final Function onTap;
   final String buttonText;
   final bool isLoading;
   final bool isPrimary;
   final bool isActive;
-  const _AppButton(
+  const AppButton(
       {Key? key,
       required this.onTap,
       required this.buttonText,
@@ -16,10 +16,10 @@ class _AppButton extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<_AppButton> createState() => _AppButtonState();
+  State<AppButton> createState() => AppButtonState();
 }
 
-class _AppButtonState extends State<_AppButton> {
+class AppButtonState extends State<AppButton> {
   @override
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
@@ -34,7 +34,7 @@ class _AppButtonState extends State<_AppButton> {
         splashColor: Theme.of(context).primaryColor,
         child: Container(
           height: 50,
-          width: 300,
+          width: 200,
           decoration: BoxDecoration(
             color: widget.isActive
                 ? widget.isPrimary

@@ -1,46 +1,65 @@
 # mobile_assessment
 
-Irecharge mobile team assessment
+Arinze Irecharge mobile app task - Employee Assessment System
 
-## Getting Started
+## Features
 
-This project is a starting point for the mobile team assessment flutter application.
+- Sign in as the admin of the company to view employees or add new one.
+  - Please use "admin" as the username and "password" as password to sign in any other apart from this will fail.
+- Displaying employees withing the company from a mock API then saving to local db(Hive).
+- View detailed information about each employee and respective evaluated perfomance.
+- Searching for employees by name, designation or level.
+- Filtering Employees by one or more levels, one or more designation and name.
 
-A few instructions before you start the ssessment:
+## Technologies Used
 
-- Clone this repositiory
-- Create your own repository and push your code to it
-- Submit a link to your repository when you are done
+- **Flutter**: For building the user interface.
+- **Provider**: For state management.
+- **Hive**: For local data base(is an object storage db no need for sql queries, etc. and very fast and efficient for large data sets).
+- **Shared Preferences**: For local storage (for storing user sessions).
 
-## Assessment Question:
+## Getting Started - Project Setup
 
-XYZ inc. is interested in automating its processes and has a project for you to work on. At the end of every year, employees are given a productivity score which affexts their status with the company:
+### Prerequisites
 
-- 100 – 80 : A promotion and consequential pay increase
-- 79 – 50 : No change
-- 49 – 40 : A demotion
-- 39 and below : Termination
+- Node.js (version 14 or higher)
+- npm (or Yarn)
 
-You have been assigned to build mobile system that primarily handles this for the people at XYZ inc. They do, however have a few secondary requirements which are:
+### Installation
 
-- The list of employees can be retrieved from Api.successResponse and should be displayed on the home screen as wll as saved in a local database
-- The employees can be filtered by name, designation or level
-- When an employee is tapped, their employee details where their employment status and new salary can be determined
-  - Level 0 = 70,000
-  - Level 1 – 100,000,
-  - Level 2 – 120,000,
-  - Level 3 – 180,000,
-  - Level 4 – 200,000
-  - Level 5 – 250,000
-- Simulate an error response from Api.errorResponse on the home page
-- A level 0 employee cannot be demoted, only terminated if need be.
+1. Clone the repository:
 
-# Bonus:
-- Proper state management
-- Adaptive user interface
-- Widget tests
-- Declarative navigation
-- Reusability of elements
+   ```bash
+   git clone https://github.com/arinzehills/Arinze-mobile-ass.git
+   cd Arinze-mobile-ass
+   pub get
+   flutter run
+   ```
 
+2. Testing
 
-## Best of luck!
+   ```bash
+   flutter test
+   ```
+
+## My Design Choice and Why
+
+1. #### Modular(Feature) Driven Approach Following Clean Architecture:
+
+- Clean Architecture follows the principle of clean code such SOLID and KISS principles
+- Clean Architecture is a design pattern that separates the code into layers, each with distinct responsibilities. The main layers in your project are:
+
+- Data Layer: Handles the retrieval of data from external sources (APIs, databases).
+- Domain Layer: Contains business logic and use cases, independent of the data source.
+- Presentation Layer: Manages the UI, usually with the help of ViewModels, and reacts to changes in the application state.
+
+##### Benefits of Clean Architecture:
+
+- Separation of Concerns:
+- Testability:
+- Flexibility: You can change or extend one layer (e.g., switch from Hive to SQLite) without affecting the others.
+- Scalability:
+
+2. #### State Management:
+
+Provider: For It's Simplicity and ease of use i choose it for global state management to handle authentication and state management for my view models.
