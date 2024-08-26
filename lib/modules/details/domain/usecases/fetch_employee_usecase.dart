@@ -7,7 +7,7 @@ class FetchEmployeeUseCase {
 
   FetchEmployeeUseCase(this.repository);
 
-  Future<EmployeeEntity> call(id) async {
+  Future<EmployeeEntity?> call(id) async {
     final employee = await repository.fetchEmployee(id);
     return EmployeeEntity(
       id: employee.id,

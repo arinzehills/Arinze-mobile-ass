@@ -15,17 +15,19 @@ class RowText extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AppText(
-            name,
-            withPadding: true,
-            type: AppTextSize.medium,
+          Expanded(
+            child: AppText(
+              name,
+              withPadding: true,
+              type: AppTextSize.medium,
+            ),
           ),
           isStatus
               ? buildStatus(value)
               : AppText(
                   value,
                   color: Colors.grey[600],
-                )
+                ),
         ],
       ),
     );

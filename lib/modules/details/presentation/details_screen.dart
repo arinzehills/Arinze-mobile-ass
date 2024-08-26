@@ -9,7 +9,7 @@ import 'package:mobile_assessment/modules/details/presentation/widgets/analytics
 import 'package:mobile_assessment/modules/widgets/loading/loading.dart';
 import 'package:mobile_assessment/modules/widgets/text/app_text.dart';
 import 'package:mobile_assessment/modules/widgets/text/row_text.dart';
-import 'package:mobile_assessment/responsive/my_paddings.dart';
+import 'package:mobile_assessment/common/responsive/my_paddings.dart';
 import 'package:provider/provider.dart';
 
 class EmployeeDetailScreen extends StatefulWidget {
@@ -53,50 +53,53 @@ class _EmployeeDetailScreenState extends State<EmployeeDetailScreen> {
             return MyPaddings.responsivePadding(
               context,
               padding: 16,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Analytics(
-                    name: ' ${employee.firstName} ${employee.lastName}',
-                    salaryChangePercentage: salaryChangePercentage,
-                    newStatus: newStatus,
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    width: double.infinity,
-                    decoration: myroundedBoxDecoration,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Align(
-                          alignment: Alignment.topCenter,
-                          child: CircleAvatar(
-                              radius: 30,
-                              backgroundColor:
-                                  getColor(salaryChangePercentage, newStatus),
-                              child: Icon(
-                                IconlyBold.user_2,
-                                color: white,
-                              )),
-                        ),
-                        SizedBox(height: 30),
-                        RowText('Name',
-                            '${employee.firstName} ${employee.lastName}'),
-                        RowText('Designation', '${employee.designation}  '),
-                        RowText('Level', '${employee.level}  '),
-                        RowText('Productivity Score:',
-                            '${employee.productivityScore}  '),
-                        RowText(
-                            'Current Salary:', '${employee.currentSalary}  '),
-                        RowText('New Salary:',
-                            '${viewModel.calculateNewSalary()}  '),
-                        RowText('Employment Status:',
-                            '${viewModel.determineNewStatus()}',
-                            isStatus: true),
-                      ],
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Analytics(
+                      name: ' ${employee.firstName} ${employee.lastName}',
+                      salaryChangePercentage: salaryChangePercentage,
+                      newStatus: newStatus,
                     ),
-                  ),
-                ],
+                    Container(
+                      padding: EdgeInsets.all(20),
+                      width: double.infinity,
+                      decoration: myroundedBoxDecoration,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: Alignment.topCenter,
+                            child: CircleAvatar(
+                                radius: 30,
+                                backgroundColor:
+                                    getColor(salaryChangePercentage, newStatus),
+                                child: Icon(
+                                  IconlyBold.user_2,
+                                  color: white,
+                                )),
+                          ),
+                          SizedBox(height: 30),
+                          RowText('Name',
+                              '${employee.firstName} ${employee.lastName}'),
+                          RowText('Designation', '${employee.designation}  '),
+                          RowText('Level', '${employee.level}  '),
+                          // Text("${employee.productivityScore}"),
+                          RowText('Productivity Score:',
+                              '${employee.productivityScore}  '),
+                          RowText(
+                              'Current Salary:', '${employee.currentSalary}'),
+                          RowText('New Salary:',
+                              '${viewModel.calculateNewSalary()}  '),
+                          RowText('Employment Status:',
+                              '${viewModel.determineNewStatus()}',
+                              isStatus: true),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           }
